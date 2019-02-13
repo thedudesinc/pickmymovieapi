@@ -17,12 +17,17 @@ namespace PickMyMovieApi.Data.Repositories
 
         public Movie Create(Movie movie)
         {
-            return _context.Movies.Add(movie).Entity;
+            _context.Movies.Add(movie);
+            _context.SaveChanges();
+
+            var createdMovie = Find(movie.Id);
+            return createdMovie;
         }
 
         public void Delete(long id)
         {
-            _context.Remove(_context.Movies.Where(m => m.Id == id));
+            _context.Remove(_context.Movies.Where(m => m.Id == id).Single());
+            _context.SaveChanges();
         }
 
         public Movie Find(long id)

@@ -11,6 +11,7 @@ namespace PickMyMovieApi.Data.Models
     public class Movie
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
         [MaxLength(200)]
