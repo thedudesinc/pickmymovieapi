@@ -29,7 +29,7 @@ namespace PickMyMovieApi.Data.Models
         public bool HasBeenWatched { get; set; }
 
         [ForeignKey("Advocate")]
-        public long AdvocateId { get; set; }
+        public string AdvocateId { get; set; }
 
         [ForeignKey("Group")]
         public long GroupId { get; set; }
@@ -44,7 +44,7 @@ namespace PickMyMovieApi.Data.Models
             string summary,
             Genre genre,
             bool hasBeenWatched,
-            long advocateId,
+            string advocateId,
             long groupId
             )
         {

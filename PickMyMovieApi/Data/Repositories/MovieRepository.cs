@@ -37,12 +37,12 @@ namespace PickMyMovieApi.Data.Repositories
 
         public List<Movie> FindAll()
         {
-            return _context.Movies.ToList();
+            return _context.Movies.OrderBy(m => m.Title).ToList();
         }
 
         public List<Movie> FindMoviesForGroup(long groupId)
         {
-            return _context.Movies.Where(m => m.GroupId == groupId).ToList();
+            return _context.Movies.Where(m => m.GroupId == groupId).OrderBy(m => m.Title).ToList();
         }
 
         public long CountAll()

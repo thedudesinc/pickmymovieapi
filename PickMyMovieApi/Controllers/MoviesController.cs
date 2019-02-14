@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using PickMyMovieApi.Data;
 using PickMyMovieApi.Data.Models;
 using PickMyMovieApi.Data.Repositories;
@@ -6,6 +7,7 @@ using PickMyMovieApi.Data.Repositories;
 namespace PickMyMovieApi.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("SiteCorsPolicy")]
     public class MoviesController : ControllerBase
     {
         private MovieRepository moviesRepository = new MovieRepository(new PickMyMovieContext());
