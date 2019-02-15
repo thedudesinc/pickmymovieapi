@@ -71,6 +71,8 @@ namespace PickMyMovieApi
                 app.UseHsts();
             }
             ConnectionString = Configuration.GetConnectionString("MySQLConnection");
+            app.UseDeveloperExceptionPage();
+
             app.UseHttpsRedirection();
             app.UseMvc();
 
